@@ -3,7 +3,7 @@
 VersionString=`grep -E 's.version.*=' B_Category.podspec`
 VersionNumber=`tr -cd 0-9 <<<"$VersionString"`
 
-NewVersionNumber=$(($VersionNumber))
+NewVersionNumber=$(($VersionNumber + 1))
 LineNumber=`grep -nE 's.version.*=' B_Category.podspec | cut -d : -f1`
 sed -i "" "${LineNumber}s/${VersionNumber}/${NewVersionNumber}/g" B_Category.podspec
 
